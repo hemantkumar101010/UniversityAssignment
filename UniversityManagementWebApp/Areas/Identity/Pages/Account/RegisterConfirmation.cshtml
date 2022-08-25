@@ -1,0 +1,28 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Registered Successfully";
+}
+
+<h1 class="text-center text-danger mt-5 pt-5">@ViewData["Title"]</h1>
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+
+                <h6 class="text-center">
+                    Hey! @Model.Email congratulations, you got registered in our portal successfully.
+                    We have a send a mail to your registered email with a link.
+                </h6>
+                <p class="text-center">
+                    Try to get Login after sometime - once you get approved by the ADMIN.
+                </p>
+
+    }
+    else
+    {
+        <p>
+            Please check your email to confirm your account.
+        </p>
+    }
+}
+

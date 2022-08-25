@@ -1,0 +1,70 @@
+﻿@model IEnumerable<UniversityManagementWebApp.Models.University>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+</head>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<partial name="_UniversityPartial"></partial>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AffiliatedCollege)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstablishedYear)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AffiliatedCollege)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstablishedYear)
+            </td>
+            <td>
+                <a asp-action="UpdateUniversity" asp-route-id="@item.Id">Update</a> |
+                <a  id="@item.Id" href="#" onclick="Delete(@item.Id)" >Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<script>
+function Delete(id) {
+    if (confirm('Are you sure ?')) {
+        $.ajax({
+            url:'https://localhost:7043/Operater/DeleteUniversity?id='+id,
+            success: function() {
+                 history.go(0);
+            },
+            error: function() {
+                alert("You got some errs.");
+            }
+        })
+    }
+   
+}
+</script>
