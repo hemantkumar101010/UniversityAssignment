@@ -7,9 +7,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1 class="display-6 text-center text-danger mb-5">University menu list (Order by ascending of Established years) </h1>
 
-<partial name="_UniversityPartial"></partial>
 <table class="table">
     <thead>
         <tr>
@@ -25,7 +24,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.EstablishedYear)
             </th>
-            <th></th>
+            <th>
+                Tool
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -51,6 +52,7 @@
 }
     </tbody>
 </table>
+<partial name="_UniversityPartial"></partial>
 
 <script>
 function Delete(id) {

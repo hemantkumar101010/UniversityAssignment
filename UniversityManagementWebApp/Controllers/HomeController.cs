@@ -35,11 +35,20 @@ namespace UniversityManagementWebApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            // var data = TempData["registration"];
+            var data =TempData["Approved"];
+            var data1 = TempData["Admin"];
+            if(data == "approvedUser")
+               return View(data);
+            else if (data1 == "Admin")
+                return View(data1);
+            else
+                return View();
         }
 
         public IActionResult Privacy()
         {
+           // var data = TempData["firstTimeLogin"];
             return View();
         }
 

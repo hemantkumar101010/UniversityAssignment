@@ -2,7 +2,14 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center" style="margin-top:15%">
+    <h1 class="display-4">Welcome To University Web App</h1>
 </div>
+@if (TempData["Approved"] != null)
+{
+    <h1 class="display-6 text-danger text-center text-uppercase">!You are in operator portal!</h1>
+}
+@if (TempData["Admin"] != null)
+{
+    <h1 class="display-6 text-danger text-center text-uppercase">!You are in Admin portal!</h1>
+}

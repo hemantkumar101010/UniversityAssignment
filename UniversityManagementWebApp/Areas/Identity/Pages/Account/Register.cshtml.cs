@@ -2,17 +2,14 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.WebUtilities;
-using MailKit.Net.Smtp;
 using MimeKit;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
-using System.Text.Encodings.Web;
 using UniversityManagementWebApp.Areas.Identity.Data;
 
 namespace UniversityManagementWebApp.Areas.Identity.Pages.Account
@@ -155,13 +152,6 @@ namespace UniversityManagementWebApp.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
-       
-
-        /*
-         *  Subject: “Your Registration is Successful” and Body as “Thanks for the registration.
-         *  Please login using <url of login page of your application>
-
-         */
       
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -193,7 +183,11 @@ namespace UniversityManagementWebApp.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        return RedirectToAction("Index","Home");
+
+                        ModelState.AddModelError(string.Empty, "Registration success: Check you mail for confermation.");
+                        return Page();
+                        //TempData["registration"] = "register";
+                        //return RedirectToAction("Index","Home");
                         //await _signInManager.SignInAsync(user, isPersistent: false);
                         // return LocalRedirect(returnUrl);
                     }

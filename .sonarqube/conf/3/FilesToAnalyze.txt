@@ -1,0 +1,10 @@
+﻿C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityApiTests\FakeData\UniversityMockData.cs
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityApiTests\UnitTests\UniversitiesControllerTests.cs
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityApiTests\Usings.cs
+C:\Users\iamte\.nuget\packages\microsoft.net.test.sdk\17.1.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.cs
+C:\Users\iamte\.nuget\packages\microsoft.testplatform.testhost\17.1.0\build\netcoreapp2.1\x64\testhost.exe
+C:\Users\iamte\.nuget\packages\microsoft.testplatform.testhost\17.1.0\build\netcoreapp2.1\x64\testhost.dll
+C:\Users\iamte\.nuget\packages\microsoft.testplatform.testhost\17.1.0\build\netcoreapp2.1\x64\Microsoft.TestPlatform.PlatformAbstractions.dll
+C:\Users\iamte\.nuget\packages\xunit.runner.visualstudio\2.4.3\build\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\iamte\.nuget\packages\xunit.runner.visualstudio\2.4.3\build\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\iamte\.nuget\packages\xunit.runner.visualstudio\2.4.3\build\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll

@@ -29,15 +29,16 @@ namespace UniversityManagementWebApp.Controllers
             {
                 string data = responseMessage.Content.ReadAsStringAsync().Result;
                 universityList = JsonConvert.DeserializeObject<List<University>>(data);
-                return View("Index", universityList);
+                var orderedList = universityList.OrderBy(x => x.EstablishedYear);
+                return View("Index", orderedList);
             }
             ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
-            return View("AddBook");
+            return View("Index");
         }
      
         public string CheckCollegeNameDuplicacy(string name)
         {
-            var data =  universityList.Where(x => x.Name == name).FirstOrDefault();
+            var data =  universityList.FirstOrDefault(x => x.Name == name);
             if(data == null)
             {
                 return "0";

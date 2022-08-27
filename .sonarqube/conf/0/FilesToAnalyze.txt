@@ -1,0 +1,5 @@
+﻿C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityDataLibrary\Entities\University.cs
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityDataLibrary\Migrations\20220825034218_initail-migration.cs
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityDataLibrary\Migrations\20220825034218_initail-migration.Designer.cs
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityDataLibrary\Migrations\UniversityDataDbContextModelSnapshot.cs
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityDataLibrary\UniversityDataDbContext.cs

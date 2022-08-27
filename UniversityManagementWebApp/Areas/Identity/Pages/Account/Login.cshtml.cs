@@ -2,18 +2,11 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
 using UniversityManagementWebApp.Areas.Identity.Data;
 
 namespace UniversityManagementWebApp.Areas.Identity.Pages.Account
@@ -118,41 +111,39 @@ namespace UniversityManagementWebApp.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    var userData = _userManager.Users.Where(u => u.Email == Input.Email).FirstOrDefault();
-                    if (userData.Status == "Approved   ")
+                    var userData =  _userManager.Users.Where(u => u.Email == Input.Email).FirstOrDefault();
+
+                    var userRole = await _userManager.GetRolesAsync(userData);
+                    if (userData.Status == "Approved   "&& userRole[0]=="Operator")
                     {
                         _logger.LogInformation("User logged in.");
+                        TempData["Approved"] = "approvedUser";
                         return LocalRedirect(returnUrl);
+                    }
+                    else if(userData.Status == "Approved   " && userRole[0] == "Admin")
+                    {
+                        _logger.LogInformation("User logged in.");
+                        TempData["Admin"] = "Admin";
+                        return LocalRedirect(returnUrl);
+                    }
+                    else if (userData.Status == "Rejected   ")
+                    {
+                        await _signInManager.SignOutAsync();
+                        ModelState.AddModelError(string.Empty, "Login Not allowed: You are rejected by the Admin!");
+                        return Page();
                     }
                     else
                     {
                         await _signInManager.SignOutAsync();
-                        return RedirectToAction("Index", "Home");
+                        ModelState.AddModelError(string.Empty, "Wait for the aproval of Admin.");
+                        return Page();
                     }
                 }
-
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                //var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
-                //if (result.Succeeded)
-                //{
-                //    _logger.LogInformation("User logged in.");
-                //    return LocalRedirect(returnUrl);
-                //}
-                //if (result.RequiresTwoFactor)
-                //{
-                //    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-                //}
-                //if (result.IsLockedOut)
-                //{
-                //    _logger.LogWarning("User account locked out.");
-                //    return RedirectToPage("./Lockout");
-                //}
-                //else
-                //{
-                //    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                //    return Page();
-                //}
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return Page();
+                }
             }
 
             // If we got this far, something failed, redisplay form

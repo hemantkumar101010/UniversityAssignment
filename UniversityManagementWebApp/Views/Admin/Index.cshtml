@@ -37,8 +37,8 @@
                @item.Status
             </td>
             <td>
-                 <button  id="@item.Id" value="@item.Id" class="btn btn-outline-success " onclick="Approve()">Approve</button>
-                 <button  id="@item.Id" value="@item.Id" class="btn btn-outline-danger abc" onclick="RejectAction()">Reject</button>
+                 <button  id="@item.Id" value="@item.Id" class="btn btn-outline-primary " onclick="Approve()">Approve</button>
+                 <button  id="@item.Id" value="@item.Id" class="btn btn-outline-danger " onclick="RejectAction()">Reject</button>
             </td>
         </tr>
 }
@@ -46,22 +46,23 @@
 </table>
 <script>
     $(document).ready(function() {
-        $(".btn").click(function Approve() {
+        $(".btn-outline-primary").click(function Approve() {
             var id = $(this).val();
             $.post("https://localhost:7043/Admin/ApproveAction?id=" + id, function(data, status) {
                     history.go(0);
             });
         });
-    });
-
-     $(document).ready(function() {
-        $(".abc").click(function RejectAction() {
+         $(".btn-outline-danger").click(function RejectAction() {
             var id = $(this).val();
             $.post("https://localhost:7043/Admin/RejectAction?id=" + id, function(data, status) {
                     history.go(0);
             });
         });
     });
+
+     //$(document).ready(function() {
+       
+    //});
 
 
 </script>

@@ -1,0 +1,10 @@
+﻿C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityApi\ApiModel\UniversityApiModel.cs
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityApi\Controllers\UniversitiesController.cs
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityApi\Program.cs
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityApi\obj\Debug\net6.0\UniversityApi.GlobalUsings.g.cs
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityApi\obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityApi\obj\Debug\net6.0\UniversityApi.AssemblyInfo.cs
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityApi\obj\Debug\net6.0\UniversityApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityApi\appsettings.Development.json
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityApi\appsettings.json
+C:\Users\iamte\Desktop\WebTraining\UniversityAssignment\UniversityApi\Properties\launchSettings.json
